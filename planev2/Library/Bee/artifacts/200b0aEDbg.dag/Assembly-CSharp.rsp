@@ -377,6 +377,8 @@
 "Assets/Scripts/EnemyBehavoiur.cs"
 "Assets/Scripts/ParallaxManager.cs"
 "Assets/Scripts/PlayerManager.cs"
+"Assets/Scripts/Spawner.cs"
+"Assets/Scripts/SpawnFollowPlayer.cs"
 -langversion:9.0
 
 /deterministic

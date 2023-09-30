@@ -74,14 +74,16 @@ public class PlayerManager : MonoBehaviour
         }
 
   
-        void OnCollisionEnter(Collider2D otherCollider)
-        {
-            
-            if (otherCollider.tag == "disparoEnemigo" ) {
-                gameObject.SetActive (false);
-                Destroy (otherCollider.gameObject);
-            } 
-        }
+      
 
+    }
+    void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+        //otherCollider.gameObject.GetComponent<DisparoBehaviour>()
+        if (otherCollider.tag == "disparoEnemigo" || otherCollider.tag == "Player")
+        {
+            gameObject.SetActive(false);
+            Destroy(otherCollider.gameObject);
+        }
     }
 }
