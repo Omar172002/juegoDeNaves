@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     public float speed = 2f;
     public float speedY = 2f;
     [Header("Limites")]
-    public float limiteX = 4f;
+    public float limiteX = 10f;
 
     [Header("Disparo")] 
     public GameObject prefabDisparo;

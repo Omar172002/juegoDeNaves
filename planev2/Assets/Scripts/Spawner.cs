@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
         // Crea una instancia del enemigo en la posición calculada.
         GameObject enemigoInstance = Instantiate(enemigoPrefab, posicionDeSpawn, Quaternion.identity);
 
-        // Puedes configurar aquí cualquier comportamiento específico del enemigo después de spawnear.
+        Destroy(enemigoInstance, 20.0f);
     }
 }
 

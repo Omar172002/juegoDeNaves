@@ -18,12 +18,18 @@ public class EnemyBehavoiur : MonoBehaviour
     
     public Transform weapon1;
     public Transform weapon2;
-    
-    
+
+    private float shootingTimer;
+    private bool isMovingRight = true;
+
+    [Header("Movement Range")]
+    public float minX = -200f; // Límite izquierdo
+    public float maxX = 200f;  // Límite derecho
+
     // Start is called before the first frame update
     void Start()
     {
-        _shootingTimer = Random.Range (0f, shootingInterval);
+        shootingTimer = Random.Range (0f, shootingInterval);
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
     }
 
@@ -31,6 +37,13 @@ public class EnemyBehavoiur : MonoBehaviour
     void Update()
     {
         StartFire();
+        
+        if (Random.Range(0f, 10f) < 0.05) // Probabilidad baja de cambio de dirección
+        {
+            isMovingRight = !isMovingRight;
+            float newSpeed = isMovingRight ? speed : -speed;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(newSpeed, 0f);
+        }
     }
     
     public void StartFire()
