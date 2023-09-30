@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -15,7 +16,11 @@ public class PlayerManager : MonoBehaviour
     public GameObject prefabDisparo;
     public float disparoSpeed =2f;
     public float timeDisparoDestroy = 2f;
-    
+
+    [Header("Vidas")]
+    public int vidas = 3; // Cantidad inicial de vidas.
+    public TextMeshProUGUI vidasTextMesh;
+
     public Transform weapon1;
     public Transform weapon2;
     private bool isFire = false;
@@ -24,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        ActualizarTextoDeVidas();
     }
 
     // Update is called once per frame
@@ -79,11 +85,32 @@ public class PlayerManager : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        //otherCollider.gameObject.GetComponent<DisparoBehaviour>()
-        if (otherCollider.tag == "disparoEnemigo" || otherCollider.tag == "Player")
+        if (otherCollider.tag == "disparoEnemigo")
         {
-            gameObject.SetActive(false);
+            // Restar una vida al jugador
+            vidas--;
+
+            // Verificar si el jugador aún tiene vidas
+            if (vidas <= 0)
+            {
+                //poner pantalla de game over
+                gameObject.SetActive(false);
+            }
+
+            // Destruir el proyectil enemigo
             Destroy(otherCollider.gameObject);
+            ActualizarTextoDeVidas();
+
+
+
+        }
+    }
+
+    void ActualizarTextoDeVidas()
+    {
+        if (vidasTextMesh != null)
+        {
+            vidasTextMesh.text = "Vidas: " + vidas.ToString();
         }
     }
 }
