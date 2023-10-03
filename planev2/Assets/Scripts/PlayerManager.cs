@@ -25,6 +25,9 @@ public class PlayerManager : MonoBehaviour
     public Transform weapon2;
     private bool isFire = false;
     private Rigidbody2D rb;
+
+    private float timeSinceLastShot = 0f;
+    public float tiempoEntreDisparos = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +39,16 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        StartFire();
-    }
 
+        // Controla el tiempo entre disparos
+        timeSinceLastShot += Time.deltaTime;
+
+        if (Input.GetAxis("Fire1") == 1f && timeSinceLastShot >= tiempoEntreDisparos)
+        {
+            Fire();
+            timeSinceLastShot = 0f; // Reinicia el contador de tiempo
+        }
+    }
     public void MovePlayer()
     {
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, speedY);
@@ -52,7 +62,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void StartFire()
+    public void Fire()
     {
         if (Input.GetAxis("Fire1") == 1f)
         {

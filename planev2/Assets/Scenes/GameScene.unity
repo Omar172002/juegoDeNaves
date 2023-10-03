@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312.75, y: -205.75}
+  m_AnchoredPosition: {x: -292, y: -236}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &851043167
@@ -323,8 +323,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -844,8 +844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemigoPrefab: {fileID: 1557090230}
   jugador: {fileID: 5177202422266189475}
-  distanciaYSigueAlJugador: 18
-  tiempoEntreSpawns: 4
+  distanciaYSigueAlJugador: 15
+  tiempoEntreSpawns: 6
 --- !u!1001 &2033164020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1115,6 +1115,10 @@ PrefabInstance:
       propertyPath: speed
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6482436553455884020, guid: dccc5a20b5ef6cf4297c03a945b53e89, type: 3}
+      propertyPath: timeDisparoDestroy
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dccc5a20b5ef6cf4297c03a945b53e89, type: 3}
 --- !u!1001 &3995564883247502198
@@ -1149,8 +1153,12 @@ PrefabInstance:
       value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 8118309231688009174, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8118309231688009174, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
       propertyPath: speedY
-      value: 1.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8118309231688009174, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
       propertyPath: limiteX
@@ -1164,6 +1172,14 @@ PrefabInstance:
       propertyPath: vidasTextMesh
       value: 
       objectReference: {fileID: 851043167}
+    - target: {fileID: 8118309231688009174, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
+      propertyPath: timeDisparoDestroy
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8118309231688009174, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
+      propertyPath: tiempoEntreDisparos
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8118309231688009175, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1190,7 +1206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8124442645028846719, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.77
+      value: -4.18
       objectReference: {fileID: 0}
     - target: {fileID: 8124442645028846719, guid: 8bd7ad04d2ba80e4cb76fa19caf9c5d0, type: 3}
       propertyPath: m_LocalPosition.z
