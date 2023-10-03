@@ -23,11 +23,7 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemigo()
     {
-        if (jugador == null)
-        {
-            UnityEngine.Debug.LogError("No se ha configurado el objeto del jugador en el Spawner.");
-            return;
-        }
+        
 
         // Calcula la posición de spawn arriba del jugador en el eje Y.
         Vector3 posicionDeSpawn = new Vector3(jugador.position.x, jugador.position.y + distanciaYSigueAlJugador, jugador.position.z);
